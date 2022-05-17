@@ -8,19 +8,19 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class EmployeeService{
+public class EmployeeService implements EmployeeDao{
     @Autowired
     EmployeeDao employeeDao;
     public List<Employee> employeeList() {
         return employeeDao.employeeList();
     }
 
-    public int insert(Employee employee) {
+    public void insert(Employee employee) {
         if(employee!=null){
             employeeDao.insert(employee);
         }
-        return 0;
     }
+
 
     public void delete(long id) {
         if(id>0){
@@ -30,7 +30,7 @@ public class EmployeeService{
         }
     }
 
-    public void updateEmployee(Employee employee) {
+    public void update(Employee employee) {
         employee.getId();
         if(employeeDao.findById(employee.getId())!=null){
             Employee employee1 = employeeDao.findById(employee.getId());

@@ -62,7 +62,7 @@ public class TestController {
         if(bindingResult.hasErrors()){
             return "update";
         }else {
-            employeeService.updateEmployee(employee);
+            employeeService.update(employee);
             return "redirect:/test/getAllEmployee";
         }
 
